@@ -1,0 +1,70 @@
+.rides-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stats-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.mini-stat {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-stat .label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.mini-stat .value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.route-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+}
+
+.route-points {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.point.from { color: var(--text-muted); }
+.point.to { color: var(--text-main); font-weight: 500; }
+
+.price-tag {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.status-badge.berlangsung { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.status-badge.selesai { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.status-badge.mencari { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+@media (max-width: 768px) {
+  .stats-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}

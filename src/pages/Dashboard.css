@@ -1,0 +1,111 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+}
+
+.chart-container, .activity-container {
+  padding: 1.5rem;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.chart-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon-small {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activity-icon-small.registration { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.activity-icon-small.ride { background: rgba(152, 255, 44, 0.1); color: #98FF2C; }
+.activity-icon-small.support { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+.activity-info {
+  flex: 1;
+}
+
+.activity-user {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.activity-type {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.activity-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.activity-status.pending { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.activity-status.selesai { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.activity-status.terbuka { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.activity-status.terverifikasi { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
