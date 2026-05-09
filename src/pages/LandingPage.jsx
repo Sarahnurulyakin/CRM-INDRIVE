@@ -311,7 +311,7 @@ const LandingPage = () => {
 
       <footer className="footer-simple">
         <div className="container">
-          <p>© 2024 Analisis Sistem Informasi CRM inDrive.</p>
+          <p>© 2026 Analisis Sistem Informasi CRM inDrive.</p>
         </div>
       </footer>
     </div>
