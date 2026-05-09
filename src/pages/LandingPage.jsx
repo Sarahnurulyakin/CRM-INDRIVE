@@ -41,7 +41,7 @@ const LandingPage = () => {
       id: "02",
       title: "Deskripsi Kasus",
       icon: <FileText />,
-      short: "Implementasi sistem CRM terintegrasi untuk penumpang dan mitra pengemudi.",
+      short: "Implementasi sistem CRM terintegrasi untuk penumpang dan pengemudi.",
       long: (
         <div className="modal-body-content">
           <p>inDrive mengimplementasikan sistem CRM terintegrasi untuk mengelola hubungan dengan pelanggan (penumpang dan driver) secara lebih efektif melalui pengelolaan data, otomatisasi komunikasi, dan analitik.</p>
@@ -58,7 +58,7 @@ const LandingPage = () => {
       id: "03",
       title: "Permasalahan",
       icon: <AlertTriangle />,
-      short: "Kendala utama: Respon lambat, data tersebar, dan rendahnya personalisasi.",
+      short: "Kendala respon lambat, data tersebar, dan rendahnya personalisasi.",
       long: (
         <div className="modal-body-content">
           <p>Sebelum implementasi CRM yang optimal, inDrive menghadapi beberapa isu krusial:</p>
@@ -75,7 +75,7 @@ const LandingPage = () => {
       id: "04",
       title: "Data Kasus",
       icon: <TrendingUp />,
-      short: "Perbandingan performa sebelum dan sesudah implementasi CRM.",
+      short: "Metrik performa sebelum dan sesudah implementasi sistem CRM.",
       long: (
         <div className="modal-body-content">
           <div className="table-responsive-premium">
@@ -107,7 +107,7 @@ const LandingPage = () => {
       id: "05",
       title: "Analisis CRM",
       icon: <Activity />,
-      short: "Strategi 3 pilar: Operasional, Analitikal, dan Kolaboratif CRM.",
+      short: "Integrasi strategi Operasional, Analitikal, dan Kolaboratif CRM.",
       long: (
         <div className="modal-body-content">
           <div className="analysis-cards-grid">
@@ -131,7 +131,7 @@ const LandingPage = () => {
       id: "06",
       title: "Tujuan Strategis",
       icon: <Target />,
-      short: "Membangun ekosistem transportasi yang adil dan memperkuat hubungan.",
+      short: "Membangun ekosistem transportasi adil melalui efisiensi layanan.",
       long: (
         <div className="modal-body-content">
           <p>Implementasi ini bertujuan untuk menempatkan pelanggan di pusat setiap keputusan bisnis melalui:</p>
@@ -147,7 +147,7 @@ const LandingPage = () => {
       id: "07",
       title: "Dampak Sistem",
       icon: <Shield />,
-      short: "Peningkatan reputasi merek dan loyalitas pengguna jangka panjang.",
+      short: "Peningkatan signifikan pada kepuasan, retensi, dan biaya operasional.",
       long: (
         <div className="modal-body-content">
           <p>Sistem ini memberikan dampak positif yang nyata pada brand equity inDrive:</p>
@@ -163,7 +163,7 @@ const LandingPage = () => {
       id: "08",
       title: "Diskusi Lanjut",
       icon: <MessageSquare />,
-      short: "Eksplorasi lebih dalam mengenai tantangan implementasi CRM.",
+      short: "Eksplorasi tantangan teknis dan peluang pengembangan di masa depan.",
       long: (
         <div className="modal-body-content">
           <p>Beberapa poin diskusi untuk pengembangan sistem di masa depan:</p>
@@ -182,7 +182,7 @@ const LandingPage = () => {
       id: "09",
       title: "Kesimpulan",
       icon: <BookOpen />,
-      short: "CRM sebagai fondasi utama inDrive dalam mewujudkan layanan transportasi global.",
+      short: "CRM sebagai pilar utama transformasi layanan transportasi global.",
       long: (
         <div className="modal-body-content">
           <div className="conclusion-box">
@@ -194,6 +194,7 @@ const LandingPage = () => {
     }
   ];
 
+
   return (
     <div className="landing-container">
       {/* Navbar */}
@@ -204,7 +205,7 @@ const LandingPage = () => {
             <span>inDrive CRM</span>
           </div>
           <div className="nav-links">
-            <a href="#case">Studi Kasus</a>
+            <a href="#case">Analisis Kasus</a>
             <button className="enter-btn" onClick={() => navigate('/dashboard')}>Login Admin</button>
           </div>
         </div>
@@ -308,12 +309,6 @@ const LandingPage = () => {
           </div>
         )}
       </AnimatePresence>
-
-      <footer className="footer-simple">
-        <div className="container">
-          <p>© 2026 Analisis Sistem Informasi CRM inDrive.</p>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -60,8 +60,49 @@
   border-radius: 50%;
 }
 
+.ai-insight-header {
+  padding: 0.8rem 1.5rem;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-insight-header h3 {
+  margin: 0;
+  color: #8b5cf6;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.insight-card {
+  padding: 1.5rem;
+  border-left: 4px solid;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.insight-card.primary { border-color: var(--primary); }
+.insight-card.purple { border-color: #8b5cf6; }
+
+.insight-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.insight-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 @media (max-width: 1200px) {
   .analytics-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ai-insight-header h3 {
+    font-size: 1rem;
   }
 }

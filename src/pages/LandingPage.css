@@ -146,13 +146,13 @@
 
 /* 9 Points Grid */
 .points-section {
-  padding: 8rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--border);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .section-header h2 {
@@ -328,7 +328,7 @@
 
 /* CTA Section */
 .cta-section {
-  padding: 10rem 0;
+  padding: 4rem 0 8rem;
   text-align: center;
 }
 
@@ -648,11 +648,87 @@
   border-radius: 0 15px 15px 0;
 }
 
-@media (max-width: 768px) {
-  .analysis-cards-grid, .impact-stats-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
   }
+  
+  .points-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 8rem 0 4rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .points-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    display: none; /* For simplicity, or could add mobile menu */
+  }
+
   .modal-pop-card {
     max-height: 95vh;
+    border-radius: 0;
+  }
+
+  .modal-header-v2 {
+    padding: 2rem 1.5rem 1rem;
+  }
+
+  .modal-scroll-area {
+    padding: 1.5rem;
+  }
+
+  .modal-header-v2 h2 {
+    font-size: 1.5rem;
+  }
+
+  .analysis-cards-grid, 
+  .impact-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-content-v2 {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-content-v2 h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .primary-btn, .secondary-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-content div {
+    flex-direction: column;
   }
 }

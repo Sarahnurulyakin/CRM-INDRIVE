@@ -11,13 +11,15 @@ import {
   FileText,
   ChevronRight,
   LogOut,
-  Settings
+  Settings,
+  X
 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const menuGroups = [
+// ... (rest of menuGroups remains the same)
     {
       title: 'UTAMA',
       items: [
@@ -44,10 +46,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-logo">
         <div className="logo-icon">ID</div>
         <span>inDrive CRM</span>
+        <button className="sidebar-close" onClick={onClose}><X size={24} /></button>
       </div>
 
       <nav className="sidebar-nav">
@@ -59,6 +62,7 @@ const Sidebar = () => {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+                onClick={onClose}
               >
                 <item.icon size={18} />
                 <span>{item.label}</span>

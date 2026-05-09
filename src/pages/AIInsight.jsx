@@ -25,9 +25,9 @@ const AIInsight = () => {
   return (
     <div className="analytics-page fade-in">
       <div className="analytics-header">
-        <div className="glass-card" style={{ padding: '0.8rem 1.5rem', border: '1px solid rgba(139, 92, 246, 0.2)', display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div className="glass-card ai-insight-header">
           <Bot size={18} color="#8b5cf6" />
-          <h3 style={{ margin: 0, color: '#8b5cf6', fontSize: '1.1rem', fontWeight: '700' }}>Wawasan Pintar AI</h3>
+          <h3>Wawasan Pintar AI</h3>
         </div>
       </div>
 
@@ -66,26 +66,27 @@ const AIInsight = () => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
-        <div className="glass-card" style={{ padding: '1.5rem', borderLeft: '4px solid #98FF2C', background: 'rgba(255,255,255,0.01)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '1.5rem' }}>
+        <div className="glass-card insight-card primary">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
             <BrainCircuit size={18} color="#98FF2C" />
-            <h4 style={{ margin: 0, fontSize: '0.95rem' }}>Kelompok Pengguna</h4>
+            <h4>Kelompok Pengguna</h4>
           </div>
-          <p style={{ fontSize: '0.85rem', color: '#a0a0a5', lineHeight: '1.6' }}>Sistem mendeteksi 12% pengguna jarang buka aplikasi lagi. Yuk, kirim promo khusus buat tarik mereka balik!</p>
+          <p>Sistem mendeteksi 12% pengguna jarang buka aplikasi lagi. Yuk, kirim promo khusus buat tarik mereka balik!</p>
           <button className="glass-btn" style={{ marginTop: '15px', fontSize: '0.75rem', padding: '8px 16px', background: 'rgba(152, 255, 44, 0.1)', color: '#98FF2C' }}>Kirim Promo</button>
         </div>
 
-        <div className="glass-card" style={{ padding: '1.5rem', borderLeft: '4px solid #8b5cf6', background: 'rgba(255,255,255,0.01)' }}>
+        <div className="glass-card insight-card purple">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1rem' }}>
             <Sparkles size={18} color="#8b5cf6" />
-            <h4 style={{ margin: 0, fontSize: '0.95rem' }}>Saran Penawaran</h4>
+            <h4>Saran Penawaran</h4>
           </div>
-          <p style={{ fontSize: '0.85rem', color: '#a0a0a5', lineHeight: '1.6' }}>Penawaran "Makan Siang Hemat" diprediksi bakal naikkan transaksi 20% di area perkantoran hari Jumat nanti.</p>
+          <p>Penawaran "Makan Siang Hemat" diprediksi bakal naikkan transaksi 20% di area perkantoran hari Jumat nanti.</p>
           <button className="glass-btn" style={{ marginTop: '15px', fontSize: '0.75rem', padding: '8px 16px', background: 'rgba(139, 92, 246, 0.1)', color: '#8b5cf6' }}>Lihat Area</button>
         </div>
       </div>
     </div>
+
   );
 };
 

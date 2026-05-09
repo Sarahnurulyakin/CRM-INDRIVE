@@ -2,11 +2,11 @@ import React from 'react';
 import { Search, Bell, User, Menu } from 'lucide-react';
 import './Header.css';
 
-const Header = ({ title }) => {
+const Header = ({ title, onMenuClick }) => {
   return (
     <header className="header glass-card">
       <div className="header-left">
-        <button className="menu-btn"><Menu size={20} /></button>
+        <button className="menu-btn" onClick={onMenuClick}><Menu size={20} /></button>
         <h1>{title}</h1>
       </div>
 

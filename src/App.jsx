@@ -14,11 +14,16 @@ import Reports from './pages/Reports';
 
 // Layout untuk Dashboard
 const DashboardLayout = ({ title }) => {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const closeSidebar = () => setIsSidebarOpen(false);
+
   return (
-    <div className="dashboard-container">
-      <Sidebar />
+    <div className={`dashboard-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
       <main className="main-content">
-        <Header title={title} />
+        <Header title={title} onMenuClick={toggleSidebar} />
         <Outlet />
       </main>
     </div>
@@ -41,17 +46,8 @@ function App() {
           <Route path="/loyalty" element={<Loyalty />} />
           <Route path="/ai-insight" element={<AIInsight />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/drivers" element={<Drivers />} />
         </Route>
-
-        <Route path="/drivers" element={
-          <div className="dashboard-container">
-            <Sidebar />
-            <main className="main-content">
-              <Header title="Manajemen Driver & Merchant" />
-              <Drivers />
-            </main>
-          </div>
-        } />
       </Routes>
     </Router>
   );
