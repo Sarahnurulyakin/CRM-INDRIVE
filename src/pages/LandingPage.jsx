@@ -1,85 +1,196 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  ArrowRight, Shield, Zap, Globe, Users, 
-  CheckCircle, Activity, TrendingUp, 
-  MousePointer2, MessageSquare, MapPin,
-  Target, Info, AlertTriangle, FileText, BookOpen, ChevronDown, ChevronUp
+import {
+  ArrowRight, Info, FileText, AlertTriangle, Activity, TrendingUp,
+  Target, Zap, Shield, BookOpen, ChevronDown, X, Maximize2, MessageSquare
 } from 'lucide-react';
 import './LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [expandedPoint, setExpandedPoint] = useState(null);
+  const [activePoint, setActivePoint] = useState(null);
 
-  const togglePoint = (id) => {
-    setExpandedPoint(expandedPoint === id ? null : id);
-  };
+  const comparisonData = [
+    { indicator: 'Waktu Respon Keluhan', before: '12 jam', after: '1.8 jam', change: '72% lebih cepat' },
+    { indicator: 'Penyelesaian Masalah (FCR)', before: '62%', after: '89%', change: '27% meningkat' },
+    { indicator: 'Kepuasan (CSAT)', before: '3.6/5', after: '4.6/5', change: '28% meningkat' },
+    { indicator: 'Pengguna Aktif (MAU)', before: '35jt', after: '46jt', change: '31% meningkat' },
+    { indicator: 'Retensi Pelanggan', before: '28%', after: '39%', change: '11% meningkat' },
+    { indicator: 'Keluhan per 1000 Trip', before: '18.7', after: '9.6', change: '48% menurun' },
+    { indicator: 'Biaya Layanan (per kontak)', before: 'Rp 16.500', after: 'Rp 9.800', change: '41% menurun' },
+  ];
 
   const casePoints = [
-    { 
-      id: "01", 
-      title: "LATAR BELAKANG", 
-      icon: <Info />, 
-      short: "Transformasi transportasi digital menuntut efisiensi tinggi dalam mengelola ekosistem inDrive.",
-      long: "Dalam era ekonomi digital yang berkembang pesat, industri ride-hailing menghadapi tantangan besar dalam mengelola volume transaksi yang masif. inDrive, sebagai platform global, memerlukan sistem yang tidak hanya mencatat transaksi tetapi juga membangun hubungan berkelanjutan dengan jutaan mitra pengemudi dan penumpang. Latar belakang ini mencakup kebutuhan akan transparansi harga melalui sistem negosiasi dan bagaimana CRM menjadi tulang punggung untuk menjaga kepercayaan pengguna di tengah persaingan ketat."
+    {
+      id: "01",
+      title: "Latar Belakang",
+      icon: <Info />,
+      short: "Tantangan inDrive dalam menjaga kualitas layanan di tengah pertumbuhan pesat.",
+      long: (
+        <div className="modal-body-content">
+          <p>Pertumbuhan pengguna inDrive yang masif menuntut sistem yang mampu mengelola jutaan interaksi secara personal dan efisien.</p>
+          <p>Diperlukan sistem yang mampu mengelola data pelanggan secara terpusat untuk mendukung interaksi yang lebih baik dan meningkatkan kepuasan serta loyalitas pengguna.</p>
+          <div className="highlight-box-premium">
+            <strong>Fokus Utama:</strong> Sentralisasi data dan efisiensi komunikasi operasional demi transparansi harga.
+          </div>
+        </div>
+      )
     },
-    { 
-      id: "02", 
-      title: "DESKRIPSI KASUS", 
-      icon: <FileText />, 
-      short: "Sistem CRM inDrive dirancang untuk mengintegrasikan seluruh elemen operasional dalam satu platform.",
-      long: "Kasus ini berfokus pada implementasi arsitektur CRM yang menghubungkan front-end aplikasi dengan back-end manajemen mitra. CRM inDrive dirancang khusus untuk mendukung fitur penawaran harga (real-time bidding). Sistem ini mengintegrasikan profil pengemudi, riwayat negosiasi, hingga sistem bantuan otomatis. Dengan integrasi ini, admin dapat melihat data secara holistik untuk mengambil keputusan cepat terkait penyesuaian layanan di wilayah tertentu."
+    {
+      id: "02",
+      title: "Deskripsi Kasus",
+      icon: <FileText />,
+      short: "Implementasi sistem CRM terintegrasi untuk penumpang dan mitra pengemudi.",
+      long: (
+        <div className="modal-body-content">
+          <p>inDrive mengimplementasikan sistem CRM terintegrasi untuk mengelola hubungan dengan pelanggan (penumpang dan driver) secara lebih efektif melalui pengelolaan data, otomatisasi komunikasi, dan analitik.</p>
+          <div className="goals-grid">
+            <div className="goal-item"><Zap size={16} /> Meningkatkan kepuasan pelanggan</div>
+            <div className="goal-item"><Zap size={16} /> Mempercepat penyelesaian masalah</div>
+            <div className="goal-item"><Zap size={16} /> Meningkatkan loyalitas pengguna</div>
+            <div className="goal-item"><Zap size={16} /> Dukungan keputusan berbasis data</div>
+          </div>
+        </div>
+      )
     },
-    { 
-      id: "03", 
-      title: "PERMASALAHAN", 
-      icon: <AlertTriangle />, 
-      short: "Tantangan pada transparansi harga, loyalitas pengemudi, dan kecepatan respon bantuan.",
-      long: "Beberapa permasalahan utama yang diidentifikasi sebelum implementasi CRM yang optimal adalah: 1) Response time keluhan yang tidak konsisten di jam sibuk. 2) Tingkat churn pengemudi yang tinggi karena kurangnya insentif yang dipersonalisasi. 3) Kesulitan dalam mensinkronkan data preferensi pengguna di berbagai kota. 4) Kurangnya analisis mendalam terhadap pola negosiasi harga yang dapat merugikan salah satu pihak."
+    {
+      id: "03",
+      title: "Permasalahan",
+      icon: <AlertTriangle />,
+      short: "Kendala utama: Respon lambat, data tersebar, dan rendahnya personalisasi.",
+      long: (
+        <div className="modal-body-content">
+          <p>Sebelum implementasi CRM yang optimal, inDrive menghadapi beberapa isu krusial:</p>
+          <ul className="detailed-list">
+            <li><span>•</span> Banyak keluhan tidak ter-respons tepat waktu di jam sibuk.</li>
+            <li><span>•</span> Data pelanggan tersebar di berbagai sistem yang tidak terhubung.</li>
+            <li><span>•</span> Personalisasi komunikasi masih rendah (pesan massal).</li>
+            <li><span>•</span> Tingkat penyelesaian masalah pada kontak pertama (FCR) masih rendah.</li>
+          </ul>
+        </div>
+      )
     },
-    { 
-      id: "04", 
-      title: "ANALISIS CRM", 
-      icon: <Activity />, 
-      short: "Strategi mencakup 3 pilar utama: Operasional, Analitikal, dan Kolaboratif.",
-      long: "Analisis sistem dibagi menjadi tiga pilar: 1) Operational CRM: Menyediakan alat bantu bagi tim CS untuk menangani tiket secara otomatis. 2) Analytical CRM: Menggunakan data besar untuk memprediksi tren permintaan dan menyesuaikan algoritma negosiasi harga agar tetap kompetitif. 3) Collaborative CRM: Menghubungkan feedback dari penumpang langsung ke profil pengemudi untuk proses peningkatan kualitas layanan yang berkelanjutan."
+    {
+      id: "04",
+      title: "Data Kasus",
+      icon: <TrendingUp />,
+      short: "Perbandingan performa sebelum dan sesudah implementasi CRM.",
+      long: (
+        <div className="modal-body-content">
+          <div className="table-responsive-premium">
+            <table className="comparison-table-premium">
+              <thead>
+                <tr>
+                  <th>Indikator Performa</th>
+                  <th>Sebelum</th>
+                  <th>Sesudah</th>
+                  <th>Perubahan</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((d, i) => (
+                  <tr key={i}>
+                    <td>{d.indicator}</td>
+                    <td>{d.before}</td>
+                    <td style={{ color: '#98FF2C', fontWeight: 'bold' }}>{d.after}</td>
+                    <td className="change-tag">{d.change}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )
     },
-    { 
-      id: "05", 
-      title: "DATA KASUS", 
-      icon: <TrendingUp />, 
-      short: "Peningkatan efisiensi respon dan kepuasan pengguna pasca implementasi.",
-      long: "Data statistik menunjukkan hasil yang signifikan: Waktu respon terhadap masalah keamanan meningkat 72% lebih cepat (dari 24 jam menjadi rata-rata 2 jam). Retensi mitra pengemudi meningkat 24% melalui program loyalitas berbasis kinerja yang dicatat dalam CRM. Tingkat kepuasan pengguna akhir mencapai skor 94%, didorong oleh kemudahan dalam proses klaim bantuan dan personalisasi promo perjalanan."
+    {
+      id: "05",
+      title: "Analisis CRM",
+      icon: <Activity />,
+      short: "Strategi 3 pilar: Operasional, Analitikal, dan Kolaboratif CRM.",
+      long: (
+        <div className="modal-body-content">
+          <div className="analysis-cards-grid">
+            <div className="analysis-card-mini">
+              <h4>OPERATIONAL</h4>
+              <p>Otomatisasi tiket, chatbot, dan integrasi kanal komunikasi pusat bantuan.</p>
+            </div>
+            <div className="analysis-card-mini">
+              <h4>ANALYTICAL</h4>
+              <p>Analisis perilaku, prediksi churn, dan segmentasi pengguna berbasis AI.</p>
+            </div>
+            <div className="analysis-card-mini">
+              <h4>COLLABORATIVE</h4>
+              <p>Integrasi feedback antara penumpang, driver, dan tim operasional.</p>
+            </div>
+          </div>
+        </div>
+      )
     },
-    { 
-      id: "06", 
-      title: "TUJUAN UTAMA", 
-      icon: <Target />, 
-      short: "Membangun ekosistem transportasi yang adil dan memperkuat hubungan mitra.",
-      long: "Tujuan strategis implementasi CRM ini adalah menciptakan ekosistem transportasi digital yang berlandaskan keadilan harga. Tujuan spesifik mencakup: 1) Digitalisasi penuh alur pendaftaran mitra. 2) Pengurangan beban kerja manual tim operasional melalui otomatisasi. 3) Peningkatan nilai seumur hidup pelanggan (Customer Lifetime Value) melalui interaksi yang lebih bermakna dan dukungan yang responsif."
+    {
+      id: "06",
+      title: "Tujuan Strategis",
+      icon: <Target />,
+      short: "Membangun ekosistem transportasi yang adil dan memperkuat hubungan.",
+      long: (
+        <div className="modal-body-content">
+          <p>Implementasi ini bertujuan untuk menempatkan pelanggan di pusat setiap keputusan bisnis melalui:</p>
+          <ul className="detailed-list">
+            <li><span>•</span> Personalisasi penawaran berbasis riwayat perjalanan.</li>
+            <li><span>•</span> Pengurangan biaya operasional per kontak bantuan.</li>
+            <li><span>•</span> Transparansi harga melalui monitoring algoritma tawar-menawar.</li>
+          </ul>
+        </div>
+      )
     },
-    { 
-      id: "07", 
-      title: "ALUR LAYANAN", 
-      icon: <Zap />, 
-      short: "Siklus terpadu dari onboarding hingga monitoring keamanan perjalanan.",
-      long: "Alur layanan CRM mencakup lima tahap utama: Pertama, Akuisisi & Verifikasi di mana dokumen pengemudi diperiksa secara otomatis. Kedua, Interaksi Negosiasi di mana sistem merekam pola penawaran harga. Ketiga, Eksekusi Layanan dengan pelacakan lokasi real-time. Keempat, Manajemen Keluhan yang terintegrasi langsung dengan riwayat perjalanan. Kelima, Retensi melalui analisis data untuk pemberian reward kepada mitra terbaik."
+    {
+      id: "07",
+      title: "Dampak Sistem",
+      icon: <Shield />,
+      short: "Peningkatan reputasi merek dan loyalitas pengguna jangka panjang.",
+      long: (
+        <div className="modal-body-content">
+          <p>Sistem ini memberikan dampak positif yang nyata pada brand equity inDrive:</p>
+          <div className="impact-stats-grid">
+            <div className="impact-stat"><span>28%</span> Kepuasan Naik</div>
+            <div className="impact-stat"><span>11%</span> Retensi Naik</div>
+            <div className="impact-stat"><span>41%</span> Biaya Turun</div>
+          </div>
+        </div>
+      )
     },
-    { 
-      id: "08", 
-      title: "DAMPAK SISTEM", 
-      icon: <Shield />, 
-      short: "Menciptakan transparansi layanan dan efisiensi operasional skala global.",
-      long: "Dampak positif yang dirasakan adalah peningkatan transparansi bagi pengemudi mengenai pendapatan mereka dan proses banding yang lebih mudah. Namun, tantangan tetap ada pada biaya pemeliharaan server skala besar dan kebutuhan akan pelatihan berkelanjutan bagi staf operasional agar dapat memaksimalkan fitur-fitur analitik yang tersedia dalam sistem CRM."
+    {
+      id: "08",
+      title: "Diskusi Lanjut",
+      icon: <MessageSquare />,
+      short: "Eksplorasi lebih dalam mengenai tantangan implementasi CRM.",
+      long: (
+        <div className="modal-body-content">
+          <p>Beberapa poin diskusi untuk pengembangan sistem di masa depan:</p>
+          <ol className="discussion-list-premium">
+            <li>Data pelanggan apa saja yang paling penting untuk dikelola oleh inDrive?</li>
+            <li>Fitur CRM mana yang paling berdampak besar pada peningkatan kepuasan pengguna?</li>
+            <li>Apa saja tantangan teknis dan non-teknis yang dihadapi saat implementasi CRM?</li>
+            <li>Bagaimana cara memanfaatkan data analitik untuk personalisasi layanan yang lebih efektif?</li>
+            <li>Metrik performa apa saja yang wajib dipantau secara rutin oleh manajer CRM?</li>
+            <li>Bagaimana peran strategi CRM dalam menjaga loyalitas mitra pengemudi di pasar yang kompetitif?</li>
+          </ol>
+        </div>
+      )
     },
-    { 
-      id: "09", 
-      title: "KESIMPULAN", 
-      icon: <BookOpen />, 
-      short: "CRM adalah pilar utama inDrive dalam mewujudkan layanan transportasi global.",
-      long: "Dapat disimpulkan bahwa CRM bukan sekadar alat teknologi, melainkan strategi bisnis yang esensial bagi inDrive. Keberhasilan implementasi bergantung pada sinkronisasi antara data operasional dan kebutuhan psikologis pengguna (keadilan dan kecepatan). InDrive terus berinovasi dalam mengintegrasikan AI ke dalam CRM untuk memberikan layanan yang lebih cerdas dan efisien di masa depan."
+    {
+      id: "09",
+      title: "Kesimpulan",
+      icon: <BookOpen />,
+      short: "CRM sebagai fondasi utama inDrive dalam mewujudkan layanan transportasi global.",
+      long: (
+        <div className="modal-body-content">
+          <div className="conclusion-box">
+            <p>"CRM bukan hanya alat teknologi, tetapi strategi untuk menempatkan pelanggan sebagai pusat dari setiap keputusan bisnis."</p>
+            <div className="conclusion-footer">- Analisis Strategi inDrive 2024</div>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -93,9 +204,8 @@ const LandingPage = () => {
             <span>inDrive CRM</span>
           </div>
           <div className="nav-links">
-            <a href="#about">Tentang</a>
             <a href="#case">Studi Kasus</a>
-            <button className="enter-btn" onClick={() => navigate('/dashboard')}>Akses Admin</button>
+            <button className="enter-btn" onClick={() => navigate('/dashboard')}>Login Admin</button>
           </div>
         </div>
       </nav>
@@ -103,111 +213,105 @@ const LandingPage = () => {
       {/* Hero */}
       <header className="hero-section">
         <div className="container">
-          <motion.div className="hero-content" initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.8}}>
-            <span className="hero-label">Analisis Sistem Informasi & CRM</span>
-            <h1>Eksplorasi Mendalam <br/><span>Strategi inDrive</span></h1>
-            <p>Bedah tuntas implementasi CRM untuk ekosistem transportasi digital yang adil, efisien, dan transparan.</p>
-            <button className="primary-btn" onClick={() => navigate('/dashboard')}>
-              Buka Dashboard Admin <ArrowRight size={18} />
-            </button>
+          <motion.div className="hero-content" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="hero-label">Studi Kasus Sistem Informasi</span>
+            <h1>Analisis Strategi <br /><span>CRM inDrive</span></h1>
+            <p>Eksplorasi bagaimana inDrive mentransformasi layanan transportasi digital melalui pendekatan CRM yang adil dan transparan.</p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <button className="primary-btn" onClick={() => document.getElementById('case').scrollIntoView({ behavior: 'smooth' })}>
+                Lihat Analisis Kasus <ChevronDown size={18} />
+              </button>
+              <button className="secondary-btn" onClick={() => navigate('/dashboard')}>
+                Buka Dashboard
+              </button>
+            </div>
           </motion.div>
         </div>
       </header>
 
-      {/* Expandable 9 Points Grid */}
+      {/* Case Study Section */}
       <section id="case" className="points-section">
         <div className="container">
           <div className="section-header">
             <h2>9 Analisis Kasus Utama</h2>
-            <p>Klik "Lihat Detail" untuk mendapatkan penjelasan mendalam pada setiap poin.</p>
+            <p>Klik pada kartu untuk melihat detail lengkap analisis setiap poin.</p>
           </div>
-          
+
           <div className="points-grid">
             {casePoints.map((point) => (
-              <motion.div 
-                key={point.id} 
-                className={`point-card ${expandedPoint === point.id ? 'expanded' : ''}`}
-                layout
+              <motion.div
+                key={point.id}
+                className="point-card-v2 glass-card"
+                onClick={() => setActivePoint(point)}
+                whileHover={{ y: -10, borderColor: '#98FF2C' }}
               >
-                <div className="point-top">
-                  <span className="point-id">{point.id}</span>
-                  <div className="point-icon">{point.icon}</div>
+                <div className="card-top">
+                  <span className="card-id">{point.id}</span>
+                  <div className="card-icon-v2">{point.icon}</div>
                 </div>
                 <h3>{point.title}</h3>
-                <p className="short-desc">{point.short}</p>
-                
-                <AnimatePresence>
-                  {expandedPoint === point.id && (
-                    <motion.div 
-                      className="long-desc"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="desc-content">
-                        {point.long}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <button 
-                  className="detail-btn" 
-                  onClick={() => togglePoint(point.id)}
-                >
-                  {expandedPoint === point.id ? (
-                    <>Tutup <ChevronUp size={16} /></>
-                  ) : (
-                    <>Lihat Detail <ChevronDown size={16} /></>
-                  )}
-                </button>
+                <p>{point.short}</p>
+                <div className="card-action">
+                  <span>Lihat Selengkapnya</span>
+                  <Maximize2 size={16} />
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Alur Layanan Section */}
-      <section className="flow-section">
+      {/* CTA Section */}
+      <section className="cta-section">
         <div className="container">
-          <div className="flow-container glass-card">
-            <div className="flow-header">
-              <h2>Alur Layanan Digital</h2>
-              <div className="flow-line"></div>
-            </div>
-            <div className="flow-steps">
-              <div className="f-step">
-                <div className="f-icon"><MousePointer2 size={24} /></div>
-                <h4>Onboarding</h4>
-                <p>Registrasi & Verifikasi</p>
-              </div>
-              <div className="f-step">
-                <div className="f-icon"><MessageSquare size={24} /></div>
-                <h4>Negosiasi</h4>
-                <p>Sistem Tawar Menawar</p>
-              </div>
-              <div className="f-step">
-                <div className="f-icon"><MapPin size={24} /></div>
-                <h4>Eksekusi</h4>
-                <p>Monitoring Perjalanan</p>
-              </div>
-              <div className="f-step">
-                <div className="f-icon"><CheckCircle size={24} /></div>
-                <h4>Evaluasi</h4>
-                <p>Feedback & Retensi</p>
-              </div>
-            </div>
+          <div className="glass-card cta-content-v2">
+            <h2>Masuk ke Sistem CRM</h2>
+            <p>Akses dashboard manajemen untuk melihat implementasi data real-time.</p>
+            <button className="primary-btn" onClick={() => navigate('/dashboard')}>
+              Akses Admin <ArrowRight size={18} />
+            </button>
           </div>
         </div>
       </section>
 
+      {/* Modal / Pop Card */}
+      <AnimatePresence>
+        {activePoint && (
+          <div className="modal-overlay-v2" onClick={() => setActivePoint(null)}>
+            <motion.div
+              className="modal-pop-card glass-card"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="modal-close" onClick={() => setActivePoint(null)}><X size={24} /></button>
+
+              <div className="modal-header-v2">
+                <div className="modal-icon-wrapper" style={{ color: '#98FF2C' }}>
+                  {activePoint.icon}
+                </div>
+                <div>
+                  <span className="modal-subtitle">Analisis Poin {activePoint.id}</span>
+                  <h2>{activePoint.title}</h2>
+                </div>
+              </div>
+
+              <div className="modal-scroll-area">
+                {activePoint.long}
+              </div>
+
+              <div className="modal-footer-v2">
+                <button className="close-btn-v2" onClick={() => setActivePoint(null)}>Tutup Detail</button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <footer className="footer-simple">
         <div className="container">
-          <div className="footer-content">
-            <div className="f-brand">inDrive CRM Case Study</div>
-            <p>© 2024 Project Sistem Informasi. Analisis Strategis CRM Global.</p>
-          </div>
+          <p>© 2024 Analisis Sistem Informasi CRM inDrive.</p>
         </div>
       </footer>
     </div>

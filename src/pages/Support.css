@@ -175,8 +175,268 @@
   color: var(--primary);
 }
 
-@media (max-width: 1024px) {
-  .support-grid {
-    grid-template-columns: 1fr;
-  }
+
+/* Helpdesk Flow Styles - Flowchart V2 */
+.helpdesk-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
+.status-badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(152, 255, 44, 0.1);
+  border: 1px solid rgba(152, 255, 44, 0.2);
+  border-radius: 100px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.premium-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.premium-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Flowchart Container */
+.flowchart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-bottom: 5rem;
+}
+
+.flow-node {
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.flow-node:hover {
+  border-color: var(--primary);
+  background: rgba(152, 255, 44, 0.02);
+  transform: translateY(-5px);
+}
+
+.start-node, .end-node {
+  width: auto;
+  min-width: 150px;
+  padding: 1rem 2rem;
+  background: rgba(152, 255, 44, 0.1);
+  border: 2px solid var(--primary);
+  border-radius: 100px;
+  color: var(--primary);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.end-node {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.flow-arrow {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.node-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.node-content {
+  flex-grow: 1;
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.live-badge {
+  font-size: 0.65rem;
+  background: rgba(152, 255, 44, 0.1);
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.monitor-node:hover .live-badge {
+  background: var(--primary);
+  color: #000;
+}
+
+/* Decision Styling */
+.decision-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.decision-diamond {
+  width: 180px;
+  height: 180px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px solid #f59e0b;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin: 2rem 0;
+}
+
+.decision-diamond span {
+  transform: rotate(-45deg);
+  font-weight: 900;
+  color: #f59e0b;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.decision-paths {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  position: relative;
+}
+
+.path-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #666;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.path-line {
+  position: absolute;
+  top: -40px;
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.merge-line {
+  width: 2px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+
+/* Database Section */
+.db-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+}
+
+.analysis-node {
+  flex: 1;
+}
+
+.db-arrow {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.database-card {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+}
+
+.db-icon {
+  color: #8b5cf6;
+}
+
+.db-list h5 {
+  margin: 0 0 8px 0;
+  color: #8b5cf6;
+  font-weight: 800;
+}
+
+.db-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .premium-title { font-size: 2rem; }
+  .decision-paths { flex-direction: column; gap: 3rem; }
+  .path { width: 100%; }
+  .db-section { flex-direction: column; }
+  .db-arrow { transform: rotate(90deg); }
+}
+
