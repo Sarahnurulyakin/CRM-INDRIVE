@@ -596,3 +596,147 @@
     border: none;
   }
 }
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-bar-v2 {
+  flex-grow: 1;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.08);
+  gap: 12px;
+}
+
+.search-bar-v2 input {
+  background: none;
+  border: none;
+  color: #fff;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.primary-solid {
+  background: #98FF2C !important;
+  color: #000 !important;
+  border: none !important;
+  font-weight: bold;
+}
+
+.ticket-item-v2 {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: all 0.3s ease;
+}
+
+.ticket-main-v2 {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.prio-indicator {
+  width: 4px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.prio-indicator.mendesak { background: #ef4444; }
+.prio-indicator.tinggi { background: #f59e0b; }
+.prio-indicator.sedang { background: #3b82f6; }
+.prio-indicator.rendah { background: #666; }
+
+.ticket-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.ticket-id-v2 {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #98FF2C;
+  letter-spacing: 1px;
+}
+
+.ticket-info-v2 h4 { margin: 0; font-size: 1rem; font-weight: 700; }
+
+.ticket-meta-v2 {
+  display: flex;
+  gap: 15px;
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.ticket-meta-v2 span { display: flex; align-items: center; gap: 4px; }
+
+.ticket-actions-v2 {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.status-pill-v2 {
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.status-pill-v2.baru { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.status-pill-v2.diproses { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.status-pill-v2.selesai { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+.more-btn { background: none; border: none; color: #333; cursor: pointer; }
+
+.stat-card-v2 { padding: 1.5rem; margin-bottom: 1.5rem; }
+.card-title-v2 { margin: 0 0 1.5rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+
+.dist-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.dist-info { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px; }
+.dist-info .bold { font-weight: bold; }
+
+.progress-bg { height: 4px; background: rgba(255,255,255,0.05); border-radius: 10px; }
+.progress-bar { height: 100%; border-radius: 10px; }
+
+.alert-card-v2 { padding: 1.5rem; text-align: center; }
+.alert-icon { margin: 0 auto 1rem; }
+.alert-card-v2 h4 { margin: 0 0 8px 0; font-size: 0.9rem; }
+.alert-card-v2 p { font-size: 0.75rem; color: #666; line-height: 1.5; }
+
+.action-btn-urgent {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .ticket-item-v2 { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .ticket-actions-v2 { width: 100%; justify-content: space-between; }
+  .ticket-meta-v2 { flex-wrap: wrap; }
+}
